@@ -1,0 +1,9 @@
+Tokenization is crucial for AI models.
+SentencePiece is a popular subword tokenization algorithm.
+It is used in many natural language processing tasks.
+Subword tokenization helps to handle unknown words.
+This is a sample dataset for SentencePiece.
+We are training a custom tokenizer.
+The vocabulary size is set to 5000.
+SentencePiece supports byte-pair encoding (BPE).
+It also supports unigram language model.
