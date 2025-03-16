@@ -7,5 +7,5 @@ print(enc.encode("Hello, world!"))
 
 
 # Output: 
-# $ python3 tiktoken_encodeing.py 
+# (myenv) harish:analyze $ python3 tiktoken_encodeing.py 
 # [9906, 11, 1917, 0]
