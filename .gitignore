@@ -172,3 +172,5 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+pre-training/bert_pretraining/checkpoint-125/model.safetensors
+pre-training/bert_pretraining/checkpoint-125/optimizer.pt
