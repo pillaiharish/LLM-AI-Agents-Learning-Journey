@@ -136,7 +136,11 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+<<<<<<< HEAD
 myenv/*
+=======
+myenv/
+>>>>>>> 8ad2cf9d0fb0b676209ba3a77cb649a0753f364e
 */myenv/*
 
 # Spyder project settings

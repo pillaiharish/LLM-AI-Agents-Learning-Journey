@@ -1,0 +1,13 @@
+llm_model,params_b,quantization,min_vram_gb,sys_ram_gb_rec,example_gpu,gpu_vram_gb,gpu_tdp_w,psu_min_w,gpu_price_inr,est_tps,notes,monthly_power_cost_inr@4h_day@₹8kWh
+Llama 3 8B (Instruct),8,Q4 (GGUF/ExLlama),6.0,8,GeForce RTX 3060 12GB (MSI Gaming X),12,170,600,25445.0,20–30 t/s,Fits on 6–8GB VRAM; speed roughly 4–6× slower than 4090 for 7–9B.,163
+Llama 3 8B (Instruct),8,Q4 (GGUF/ExLlama),6.0,8,GeForce RTX 4060 Ti 16GB,16,165,450,47750.0,40–60 t/s,Good single‑GPU sweet spot for 7–9B models.,158
+Llama 3 8B (Instruct),8,Q4 (GGUF/ExLlama),6.0,8,GeForce RTX 4090 24GB (Gigabyte OC),24,450,850,163799.0,120–150 t/s,llama.cpp typical ~140 t/s for 7B on 3090/4090 class.,432
+Gemma 2 9B (Instruct),9,INT8,10.3,8,GeForce RTX 4060 Ti 16GB,16,165,450,47750.0,35–55 t/s,INT8 VRAM ≈10.3 GB; FP16 ≈18 GB.,158
+Llama 2/3 13B,13,Q4 (GGUF/GPTQ),10.0,16,GeForce RTX 4060 Ti 16GB,16,165,450,47750.0,8–15 t/s,Typical 4090 user reports ~20–30 t/s; this card ~half.,158
+Llama 2/3 13B,13,Q4 (GGUF/GPTQ),10.0,16,GeForce RTX 4090 24GB (Gigabyte OC),24,450,850,163799.0,20–30 t/s,Reddit/oobabooga reports ~20–25 t/s.,432
+Yi 34B (Chat),34,Q4 (GPTQ),21.0,32,GeForce RTX 4090 24GB (Gigabyte OC),24,450,850,163799.0,30–45 t/s,4‑bit VRAM ~21 GB; 24GB cards fit comfortably.,432
+Yi 34B (Chat),34,Q4 (GPTQ),21.0,32,NVIDIA RTX 6000 Ada 48GB (PNY VCNRTX6000ADA-PB),48,300,750,739999.0,25–40 t/s,Pro card; similar or slightly slower than 4090 per watt.,288
+Mixtral 8x7B,MoE (12–13B active),Q4 (GGUF),12.0,32,GeForce RTX 4090 24GB (Gigabyte OC),24,450,850,163799.0,35–55 t/s,Real‑world ~40–45 t/s on RTX 3090; 4090 similar or higher.,432
+Llama 3.1 / Llama 2 70B,70,Q4 (int4),40.0,64,NVIDIA RTX 6000 Ada 48GB (PNY VCNRTX6000ADA-PB),48,300,850,739999.0,8–13 t/s,Comparable to A40 48GB results for 70B at ~12–13 t/s.,288
+Llama 3.1 70B (dual‑GPU),70,Q4 split across 2×24GB,36.0,64,2× GeForce RTX 3090 24GB,48,700,1000,,20–22 t/s,llama.cpp output‑eval ≈21 t/s reported on 2×3090.,672
+Qwen2 / 2.5 72B,72,Q4 (int4),43.5,64,NVIDIA RTX 6000 Ada 48GB (PNY VCNRTX6000ADA-PB),48,300,850,739999.0,8–9 t/s,Qwen2‑72B int4 VRAM ≈43.5 GB; A40 tests show ~8–9 t/s.,288
