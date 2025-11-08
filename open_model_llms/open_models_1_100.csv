@@ -1,0 +1,101 @@
+id,model_name,url,type,params_billion,typical_use,est_vram_4bit_gb,notes
+1,Llama-3.1-8B-Instruct,https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct,LLM,8.0,General chat / coding,6–7,128K ctx family; popular 8B.
+2,Mistral-7B-v0.3,https://huggingface.co/mistralai/Mistral-7B-v0.3,LLM,7.3,General chat,5–6,Efficient 7B; many finetunes.
+3,Qwen2.5-7B-Instruct,https://huggingface.co/Qwen/Qwen2.5-7B-Instruct,LLM,7.0,General chat,5–6,Long-context variants exist.
+4,gemma-2-9b-it,https://huggingface.co/google/gemma-2-9b-it,LLM,9.0,General chat / reasoning,6–8,Good small generalist.
+5,stablelm-2-12b-chat,https://huggingface.co/stabilityai/stablelm-2-12b-chat,LLM,12.1,General chat,8–10,Multilingual small model.
+6,Mixtral-8x7B-Instruct-v0.1,https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1,LLM (MoE),45.0,General / RAG,24–28,MoE (~12B active); 4-bit fits 24–28 GB.
+7,starcoder2-15b,https://huggingface.co/bigcode/starcoder2-15b,Code LLM,15.0,Code generation,10–12,16K ctx; permissive.
+8,DeepSeek-Coder-V2-Instruct,https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct,Code LLM (MoE),16.0,Coding / fill-in-the-middle,11–13,MoE family; strong coding.
+9,CodeLlama-13b-Instruct-hf,https://huggingface.co/codellama/CodeLlama-13b-Instruct-hf,Code LLM,13.0,Coding / infill,9–11,Solid OSS code baseline.
+10,Llama-3.2-3B-Instruct,https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct,LLM,3.0,Lightweight chat,3–4,Good for small GPUs.
+11,Llama-3.2-1B-Instruct,https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct,SLM,1.0,Ultra-light chat,1–2,Edge devices.
+12,OpenELM-3B,https://huggingface.co/apple/OpenELM-3B,SLM,3.0,Lightweight chat,3–4,Apple small model.
+13,btlm-3b-8k,https://huggingface.co/cerebras/btlm-3b-8k,SLM,3.0,Lightweight chat,3–4,BTLM 3B 8k.
+14,TinyLlama-1.1B-Chat-v1.0,https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0,SLM,1.1,Tiny chat,1–2,Great for very small GPUs.
+15,idefics2-8b,https://huggingface.co/HuggingFaceM4/idefics2-8b,VLM,8.0,Vision-language chat / OCR,7–9,Apache-2.0 VLM.
+16,llava-v1.6-mistral-7b,https://huggingface.co/liuhaotian/llava-v1.6-mistral-7b,VLM,7.0,Vision-chat / caption,6–8,Popular 7B VLM.
+17,Pixtral-12B,https://huggingface.co/mistralai/Pixtral-12B,VLM,12.0,Doc/image QA,9–11,128K ctx VLM.
+18,InternVL2-8B,https://huggingface.co/OpenGVLab/InternVL2-8B,VLM,8.0,"Doc/chart OCR, VQA",6–8,Strong doc understanding.
+19,Qwen2.5-VL-7B-Instruct,https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct,VLM,7.0,Vision-chat / video,6–8,Vision variant of Qwen2.5.
+20,Llama-3.2-11B-Vision-Instruct,https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct,VLM,11.0,Vision + text chat,8–10,Meta vision model.
+21,Qwen2.5-Coder-32B-Instruct,https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct,Code LLM,32.0,Advanced coding,18–22,Large code model.
+22,codegemma-7b-it,https://huggingface.co/google/codegemma-7b-it,Code LLM,7.0,Coding,5–6,Google CodeGemma.
+23,starcoder2-3b,https://huggingface.co/bigcode/starcoder2-3b,Code LLM,3.0,Coding,3–4,Small StarCoder2.
+24,Codestral-22B-v0.1,https://huggingface.co/mistralai/Codestral-22B-v0.1,Code LLM,22.0,Coding / reasoning,14–16,Strong 22B code LLM.
+25,glm-4-9b-chat-hf,https://huggingface.co/zai-org/glm-4-9b-chat-hf,LLM,9.0,Chat,6–8,GLM-4 9B chat.
+26,codegeex4-all-9b,https://huggingface.co/THUDM/codegeex4-all-9b,Code LLM,9.0,Coding,6–8,New CodeGeeX4 9B.
+27,Mistral-NeMo-12B-Instruct,https://huggingface.co/nvidia/Mistral-NeMo-12B-Instruct,LLM,12.0,Chat / coding,8–10,128K ctx.
+28,AI21-Jamba-Mini-1.7,https://huggingface.co/ai21labs/AI21-Jamba-Mini-1.7,LLM (MoE),1.7,Chat / tools,2–3,Jamba Mini.
+29,MAmmoTH2-8x7B,https://huggingface.co/TIGER-Lab/MAmmoTH2-8x7B,LLM (MoE),45.0,Reasoning / RAG,24–28,MoE 8×7B.
+30,openchat-3.5-1210,https://huggingface.co/openchat/openchat-3.5-1210,LLM (fine-tune),7.0,Helpful chat,5–6,Community SFT/DPO.
+31,Nous-Hermes-2-Mistral-7B-DPO,https://huggingface.co/NousResearch/Nous-Hermes-2-Mistral-7B-DPO,LLM (fine-tune),7.0,Assistant chat,5–6,Popular Mistral SFT.
+32,OpenHermes-2.5-Mistral-7B,https://huggingface.co/teknium/OpenHermes-2.5-Mistral-7B,LLM (fine-tune),7.0,Assistant chat,5–6,Community favorite.
+33,replit-code-v1_5-3b,https://huggingface.co/replit/replit-code-v1_5-3b,Code LLM,3.0,Coding,3–4,Replit small code.
+34,stable-code-3b,https://huggingface.co/Stability-AI/stable-code-3b,Code LLM,3.0,Coding,3–4,StableCode 3B.
+35,Qwen2.5-72B-Instruct,https://huggingface.co/Qwen/Qwen2.5-72B-Instruct,LLM,72.0,Advanced chat,38–45,Multi-GPU recommended.
+36,granite-3.3-8b-instruct,https://huggingface.co/ibm-granite/granite-3.3-8b-instruct,LLM,8.0,Chat,6–7,IBM Granite 8B.
+37,granite-20b-code-instruct-8k,https://huggingface.co/ibm-granite/granite-20b-code-instruct-8k,Code LLM,20.0,Coding,12–14,Granite Code 20B.
+38,Phi-3-medium-128k-instruct,https://huggingface.co/microsoft/Phi-3-medium-128k-instruct,LLM,14.0,Chat / reasoning,10–12,Long-context.
+39,Phi-3.5-vision-instruct,https://huggingface.co/microsoft/Phi-3.5-vision-instruct,VLM,,Vision + text,6–9,Params N/A; compact VLM.
+40,MiniCPM-V-2_6,https://huggingface.co/openbmb/MiniCPM-V-2_6,VLM,8.0,Vision QA / OCR,7–9,Lightweight VLM.
+41,Qwen2.5-Coder-32B-Instruct,https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct,Code LLM,32.0,Advanced coding,18–22,Duplicate of #21.
+42,codegemma-7b-it,https://huggingface.co/google/codegemma-7b-it,Code LLM,7.0,Coding,5–6,Duplicate of #22.
+43,starcoder2-3b,https://huggingface.co/bigcode/starcoder2-3b,Code LLM,3.0,Coding,3–4,Duplicate of #23.
+44,Codestral-22B-v0.1,https://huggingface.co/mistralai/Codestral-22B-v0.1,Code LLM,22.0,Coding / reasoning,14–16,Duplicate of #24.
+45,glm-4-9b-chat-hf,https://huggingface.co/zai-org/glm-4-9b-chat-hf,LLM,9.0,Chat,6–8,Duplicate of #25.
+46,codegeex4-all-9b,https://huggingface.co/THUDM/codegeex4-all-9b,Code LLM,9.0,Coding,6–8,Duplicate of #26.
+47,Mistral-NeMo-12B-Instruct,https://huggingface.co/nvidia/Mistral-NeMo-12B-Instruct,LLM,12.0,Chat / coding,8–10,Duplicate of #27.
+48,AI21-Jamba-Mini-1.7,https://huggingface.co/ai21labs/AI21-Jamba-Mini-1.7,LLM (MoE),1.7,Chat / tools,2–3,Duplicate of #28.
+49,DeepSeek-Coder-V2-Instruct,https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct,Code LLM (MoE),16.0,Coding / FIM,11–13,Duplicate of #8.
+50,DeepSeek-V2,https://huggingface.co/deepseek-ai/DeepSeek-V2,LLM (MoE),,Advanced chat / reasoning,>30,Very large MoE; multi-GPU.
+51,MAmmoTH2-8x7B,https://huggingface.co/TIGER-Lab/MAmmoTH2-8x7B,LLM (MoE),45.0,Reasoning / RAG,24–28,Duplicate of #29.
+52,openchat-3.5-1210,https://huggingface.co/openchat/openchat-3.5-1210,LLM (fine-tune),7.0,Helpful chat,5–6,Duplicate of #30.
+53,Nous-Hermes-2-Mistral-7B-DPO,https://huggingface.co/NousResearch/Nous-Hermes-2-Mistral-7B-DPO,LLM (fine-tune),7.0,Assistant chat,5–6,Duplicate of #31.
+54,OpenHermes-2.5-Mistral-7B,https://huggingface.co/teknium/OpenHermes-2.5-Mistral-7B,LLM (fine-tune),7.0,Assistant chat,5–6,Duplicate of #32.
+55,replit-code-v1_5-3b,https://huggingface.co/replit/replit-code-v1_5-3b,Code LLM,3.0,Coding,3–4,Duplicate of #33.
+56,stable-code-3b,https://huggingface.co/Stability-AI/stable-code-3b,Code LLM,3.0,Coding,3–4,Duplicate of #34.
+57,Qwen2.5-72B-Instruct,https://huggingface.co/Qwen/Qwen2.5-72B-Instruct,LLM,72.0,Advanced chat,38–45,Duplicate of #35.
+58,granite-3.3-8b-instruct,https://huggingface.co/ibm-granite/granite-3.3-8b-instruct,LLM,8.0,Chat,6–7,Duplicate of #36.
+59,granite-20b-code-instruct-8k,https://huggingface.co/ibm-granite/granite-20b-code-instruct-8k,Code LLM,20.0,Coding,12–14,Duplicate of #37.
+60,Phi-3-medium-128k-instruct,https://huggingface.co/microsoft/Phi-3-medium-128k-instruct,LLM,14.0,Chat / reasoning,10–12,Duplicate of #38.
+61,llava-next (docs),https://huggingface.co/docs/transformers/en/model_doc/llava_next,VLM,,Vision-language family,6–12,Family docs; pick 7B variants to run.
+62,llava-onevision-qwen2-7b-ov,https://huggingface.co/lmms-lab/llava-onevision-qwen2-7b-ov,VLM,7.0,OneVision VLM,6–8,Qwen2-7B base.
+63,moondream2,https://huggingface.co/vikhyatk/moondream2,VLM (tiny),1.8,Mobile-scale VQA,2–3,Very small VLM.
+64,Florence-2-large,https://huggingface.co/microsoft/Florence-2-large,Vision encoder,,OCR/grounding,>10,Often used with LLM head.
+65,DocOwl1.5,https://huggingface.co/mPLUG/DocOwl1.5,VLM,,Doc understanding,6–10,PDF/table focus.
+66,VILA-13b,https://huggingface.co/Efficient-Large-Model/VILA-13b,VLM,13.0,Vision-language,10–12,13B VLM.
+67,llava-v1.6-34b-hf,https://huggingface.co/llava-hf/llava-v1.6-34b-hf,VLM,34.0,High-end VLM,18–22,Large 34B.
+68,Qwen2-VL-2B-Instruct,https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct,VLM,2.0,Lightweight VLM,2–3,Small vision model.
+69,InternVL2-26B,https://huggingface.co/OpenGVLab/InternVL2-26B,VLM,26.0,Doc/chart QA,14–18,Larger InternVL2.
+70,Yi-VL-6B,https://huggingface.co/01-ai/Yi-VL-6B,VLM,6.0,Vision-chat,5–7,Yi VLM 6B.
+71,OLMo-2-1124-7B-Instruct,https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct,LLM,7.0,General chat,5–6,AllenAI OLMo-2.
+72,dbrx-instruct,https://huggingface.co/databricks/dbrx-instruct,LLM (MoE),,Advanced chat,>30,Very large MoE (multi-GPU).
+73,mpt-7b-instruct,https://huggingface.co/mosaicml/mpt-7b-instruct,LLM,7.0,Chat,5–6,MPT 7B.
+74,falcon-7b-instruct,https://huggingface.co/tiiuae/falcon-7b-instruct,LLM,7.0,Chat,5–6,Falcon 7B.
+75,falcon-180B,https://huggingface.co/tiiuae/falcon-180B,LLM,180.0,Advanced chat,>90,Extremely large; multi-GPU.
+76,bloom-7b1,https://huggingface.co/bigscience/bloom-7b1,LLM,7.1,Chat,5–6,BLOOM 7B1.
+77,RedPajama-INCITE-7B-Instruct,https://huggingface.co/togethercomputer/RedPajama-INCITE-7B-Instruct,LLM,7.0,Chat,5–6,RP-INCITE 7B.
+78,chatglm3-6b,https://huggingface.co/THUDM/chatglm3-6b,LLM,6.0,Chat,4–5,GLM 6B.
+79,rwkv-6-world,https://huggingface.co/BlinkDL/rwkv-6-world,RWKV,,RWKV experiments,4–10,Varies by checkpoint.
+80,Phi-3-mini-4k-instruct,https://huggingface.co/microsoft/Phi-3-mini-4k-instruct,SLM,3.8,Lightweight chat,3–4,Phi-3 Mini 3.8B.
+81,Yi-1.5-72B-Chat,https://huggingface.co/01-ai/Yi-1.5-72B-Chat,LLM,72.0,Advanced chat,38–45,Large; multi-GPU ideal.
+82,Yi-1.5-6B-Chat,https://huggingface.co/01-ai/Yi-1.5-6B-Chat,LLM,6.0,Chat,4–5,Yi 6B.
+83,Baichuan2-13B-Chat,https://huggingface.co/baichuan-inc/Baichuan2-13B-Chat,LLM,13.0,Chat,9–11,Baichuan 13B.
+84,Baichuan2-7B-Chat,https://huggingface.co/baichuan-inc/Baichuan2-7B-Chat,LLM,7.0,Chat,5–6,Baichuan 7B.
+85,internlm2-chat-7b,https://huggingface.co/internlm/internlm2-chat-7b,LLM,7.0,Chat,5–6,InternLM2 7B.
+86,internlm2-chat-20b,https://huggingface.co/internlm/internlm2-chat-20b,LLM,20.0,Chat,12–14,InternLM2 20B.
+87,XVERSE-13B,https://huggingface.co/xverse/XVERSE-13B,LLM,13.0,Chat,9–11,XVERSE 13B.
+88,xglm-7.5B,https://huggingface.co/facebook/xglm-7.5B,LLM,7.5,Multilingual,5–6,XGLM 7.5B.
+89,pythia-12b,https://huggingface.co/EleutherAI/pythia-12b,LLM,12.0,Pretraining / experiments,8–10,EleutherAI Pythia.
+90,mpt-30b-instruct,https://huggingface.co/mosaicml/mpt-30b-instruct,LLM,30.0,Advanced chat,16–20,Large 30B.
+91,mpt-30b-chat,https://huggingface.co/mosaicml/mpt-30b-chat,LLM,30.0,Chat,16–20,Large 30B.
+92,Nous-Hermes-2-Mixtral-8x7B-SFT,https://huggingface.co/NousResearch/Nous-Hermes-2-Mixtral-8x7B-SFT,LLM (MoE),45.0,Assistant chat,24–28,Mixtral SFT.
+93,WizardCoder-Python-34B-V1.0,https://huggingface.co/WizardLM/WizardCoder-Python-34B-V1.0,Code LLM,34.0,Python coding,18–22,Large 34B code.
+94,Replit-Code-v2-13B,https://huggingface.co/replit/Replit-Code-v2-13B,Code LLM,13.0,Coding,9–11,Replit 13B code.
+95,WizardMath-13B-V1.1,https://huggingface.co/WizardLM/WizardMath-13B-V1.1,Math LLM,13.0,Math reasoning,9–11,Math-tuned 13B.
+96,dolphin-mistral (Ollama),https://ollama.com/library/dolphin-mistral,LLM (fine-tune),7.0,Helpful chat,5–6,Mistral 7B finetune.
+97,Orca-2-13b,https://huggingface.co/microsoft/Orca-2-13b,LLM,13.0,Reasoning/chat,9–11,Microsoft Orca-2 13B.
+98,phi-2,https://huggingface.co/microsoft/phi-2,SLM,2.7,Lightweight chat,2–3,Phi-2 2.7B.
+99,Llama-2-13b-chat-hf,https://huggingface.co/meta-llama/Llama-2-13b-chat-hf,LLM,13.0,Chat,9–11,Llama 2 13B chat.
+100,vicuna-13b-v1.5,https://huggingface.co/lmsys/vicuna-13b-v1.5,LLM (fine-tune),13.0,Assistant chat,9–11,Vicuna 13B on LLaMA.
