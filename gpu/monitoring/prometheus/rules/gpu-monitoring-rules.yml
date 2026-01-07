@@ -1,0 +1,56 @@
+groups:
+  - name: gpu-monitoring-alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: cpu_usage_percent > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage detected"
+          description: "CPU usage is above 80% for more than 5 minutes. Current value: {{ $value }}%"
+
+      - alert: HighMemoryUsage
+        expr: memory_usage_percent > 85
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High memory usage detected"
+          description: "Memory usage is above 85% for more than 5 minutes. Current value: {{ $value }}%"
+
+      - alert: HighGPUUsage
+        expr: gpu_utilization_percent > 90
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High GPU utilization detected"
+          description: "GPU utilization is above 90% for more than 5 minutes. Current value: {{ $value }}%"
+
+      - alert: HighGPUTemperature
+        expr: gpu_temperature_celsius > 80
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High GPU temperature detected"
+          description: "GPU temperature is above 80°C for more than 2 minutes. Current value: {{ $value }}°C"
+
+      - alert: HighCPUTemperature
+        expr: cpu_temperature_celsius > 75
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU temperature detected"
+          description: "CPU temperature is above 75°C for more than 2 minutes. Current value: {{ $value }}°C"
+
+      - alert: LowDiskSpace
+        expr: disk_usage_percent > 90
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Low disk space detected"
+          description: "Disk usage is above 90% for more than 5 minutes. Current value: {{ $value }}%"

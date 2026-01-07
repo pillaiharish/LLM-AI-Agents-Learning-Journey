@@ -1,0 +1,24 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "rules/*.yml"
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'gpu-cpu-metrics'
+    static_configs:
+      - targets: ['localhost:8080']
+    scrape_interval: 30s
+    scrape_timeout: 10s
+    metrics_path: '/metrics'
