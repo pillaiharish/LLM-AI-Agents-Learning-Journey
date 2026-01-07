@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Logs and Results (keep structure, ignore actual test data)
+logs/*.csv
+logs/*.txt
+logs/*.json
+*.log
+
+# Test output files from specific hardware
+TEST_RESULTS_2MIN_FINAL.md
+FINAL_300W_TEST_RESULTS.md
+REAL_TEST_RESULTS.md
+IMPLEMENTATION_SUMMARY.md
+test_output.txt
+
+# Hardware-specific configs
+config.json
+
+# Compiled binaries
+gpu-burn/gpu_burn
+gpu-burn/*.o
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# System files
+Thumbs.db
+.directory
+
+*.old
+*.backup
+gpu-burn/

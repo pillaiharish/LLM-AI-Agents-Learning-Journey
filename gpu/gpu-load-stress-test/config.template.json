@@ -1,0 +1,25 @@
+{
+  "safety_thresholds": {
+    "cpu_temp_max": 90,
+    "gpu_temp_max": 78,
+    "gpu_hotspot_max": 100,
+    "gpu_power_max": 350,
+    "sustained_violation_seconds": 10
+  },
+  "test_stages": {
+    "idle_duration": 120,
+    "cpu_blend_duration": 300,
+    "cpu_smallfft_duration": 300,
+    "gpu_stress_duration": 600,
+    "combined_duration": 600,
+    "cooldown_duration": 120
+  },
+  "monitoring": {
+    "poll_interval": 1.0,
+    "log_directory": "logs"
+  },
+  "hardware": {
+    "cpu_model": "Auto-detect",
+    "gpu_model": "Auto-detect"
+  }
+}
