@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Calculator</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Token Calculator</h1>
+            <p class="subtitle">Estimate token counts and API costs for LLMs</p>
+            <button id="theme-toggle" class="theme-btn" title="Toggle theme">
+                <span class="icon-sun">&#9788;</span>
+                <span class="icon-moon">&#9790;</span>
+            </button>
+        </header>
+
+        <div class="input-section">
+            <div class="tabs">
+                <button class="tab active" data-tab="text">Paste Text</button>
+                <button class="tab" data-tab="file">Upload File</button>
+            </div>
+
+            <div id="tab-text" class="tab-content active">
+                <textarea id="text-input" placeholder="Paste your text here..." rows="8"></textarea>
+                <div class="stats-bar" id="stats-bar">
+                    <span id="stat-chars">0 characters</span>
+                    <span id="stat-words">0 words</span>
+                    <span id="stat-tokens">0 est. tokens</span>
+                </div>
+            </div>
+
+            <div id="tab-file" class="tab-content">
+                <div class="drop-zone" id="drop-zone">
+                    <p>Drag & drop a file here, or click to browse</p>
+                    <p class="drop-hint">Supports: txt, md, csv, pdf, docx, xlsx, images, audio</p>
+                    <input type="file" id="file-input" hidden>
+                </div>
+                <div id="file-info" class="file-info hidden"></div>
+            </div>
+
+            <div class="controls">
+                <select id="model-select">
+                    <option value="">All Models</option>
+                </select>
+                <button id="calculate-btn" class="primary-btn">Calculate</button>
+            </div>
+        </div>
+
+        <div id="results-section" class="results-section hidden">
+            <h2>Results</h2>
+            <div id="results-meta" class="results-meta"></div>
+            <div class="table-wrapper">
+                <table id="results-table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Provider</th>
+                            <th>Context</th>
+                            <th>Tokens</th>
+                            <th>Method</th>
+                            <th>Input Cost</th>
+                            <th>Cached Cost</th>
+                            <th>Output Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>Calculating...</span>
+        </div>
+
+        <div id="error-msg" class="error hidden"></div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

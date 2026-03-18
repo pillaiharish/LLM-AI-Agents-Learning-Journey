@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/theme.css">
+    <link rel="stylesheet" href="/css/shell.css">
+    <link rel="stylesheet" href="/css/shared.css">
+</head>
+<body>
+    <!-- Mobile header -->
+    <div class="mobile-header">
+        <button class="hamburger" id="hamburger">&#9776;</button>
+        <span class="title">Dev Tools</span>
+    </div>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header" id="sidebar-logo" style="cursor:pointer;">
+                <span class="logo">&#9881;</span>
+                <h1>Dev Tools</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a class="nav-item active" data-page="token-calculator">
+                    <span class="icon">&#9733;</span> Token Calculator
+                </a>
+                <a class="nav-item" data-page="json-linter">
+                    <span class="icon">{ }</span> JSON Linter
+                </a>
+                <a class="nav-item" data-page="excel-reader">
+                    <span class="icon">&#9638;</span> Excel Reader
+                </a>
+                <a class="nav-item" data-page="image-tools">
+                    <span class="icon">&#9635;</span> Image Tools
+                </a>
+                <a class="nav-item" data-page="file-renamer">
+                    <span class="icon">&#9998;</span> File Renamer
+                </a>
+                <a class="nav-item" data-page="network-scanner">
+                    <span class="icon">&#9732;</span> Network Scanner
+                </a>
+                <a class="nav-item" data-page="storage-analyzer">
+                    <span class="icon">&#9686;</span> Storage Analyzer
+                </a>
+                <a class="nav-item" data-page="chatgpt-viewer">
+                    <span class="icon">&#9993;</span> ChatGPT Viewer
+                </a>
+                <a class="nav-item" data-page="gemini-chat">
+                    <span class="icon">&#9830;</span> Gemini Chat
+                </a>
+                <a class="nav-item" data-page="audio-transcription">
+                    <span class="icon">&#9835;</span> Audio Transcription
+                </a>
+                <a class="nav-item" data-page="md-converter">
+                    <span class="icon">&#128196;</span> MD Converter
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <span class="text-muted" style="font-size:0.75rem;">v1.0</span>
+                <button class="theme-toggle" id="theme-toggle" title="Toggle theme">
+                    <span class="icon-sun">&#9788;</span>
+                    <span class="icon-moon">&#9790;</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content">
+
+            <!-- TOKEN CALCULATOR -->
+            <section class="tool-page active" id="page-token-calculator">
+                <h2>Token Calculator</h2>
+                <p class="subtitle">Estimate token counts and API costs for LLMs</p>
+
+                <div class="card">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="tc-text">Paste Text</button>
+                        <button class="tab" data-tab="tc-file">Upload File</button>
+                    </div>
+                    <div id="tab-tc-text" class="tab-content active">
+                        <textarea id="tc-text-input" placeholder="Paste your text here..." rows="8"></textarea>
+                        <div class="stats-bar">
+                            <span id="tc-stat-chars">0 characters</span>
+                            <span id="tc-stat-words">0 words</span>
+                            <span id="tc-stat-tokens">0 est. tokens</span>
+                        </div>
+                    </div>
+                    <div id="tab-tc-file" class="tab-content">
+                        <div class="drop-zone" id="tc-drop-zone">
+                            <div class="drop-icon">&#128196;</div>
+                            <p>Drag & drop a file here, or click to browse</p>
+                            <p class="drop-hint">Supports: txt, md, csv, pdf, docx, xlsx, images, audio</p>
+                            <input type="file" id="tc-file-input" hidden>
+                        </div>
+                        <div id="tc-file-info" class="file-info hidden"></div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="form-group">
+                            <select id="tc-model-select"><option value="">All Models</option></select>
+                        </div>
+                        <button class="btn btn-primary" id="tc-calculate-btn">Calculate</button>
+                    </div>
+                </div>
+
+                <div id="tc-results" class="hidden">
+                    <div id="tc-results-meta" class="text-muted mb-1" style="font-size:0.88rem;"></div>
+                    <div class="table-wrapper">
+                        <table><thead><tr>
+                            <th>Model</th><th>Provider</th><th>Context</th><th>Tokens</th>
+                            <th>Method</th><th>Input Cost</th><th>Cached Cost</th><th>Output Cost</th>
+                        </tr></thead><tbody id="tc-results-body"></tbody></table>
+                    </div>
+                </div>
+                <div id="tc-loading" class="loading hidden"><div class="spinner"></div><span>Calculating...</span></div>
+                <div id="tc-error" class="msg-error hidden"></div>
+            </section>
+
+            <!-- JSON LINTER -->
+            <section class="tool-page" id="page-json-linter">
+                <h2>JSON Linter</h2>
+                <p class="subtitle">Validate, format, and fix JSON</p>
+
+                <div class="card">
+                    <div class="flex justify-between items-center mb-1">
+                        <label style="margin:0">Paste JSON</label>
+                        <div class="btn-group">
+                            <button class="btn btn-sm" id="jl-paste-btn">Paste</button>
+                            <button class="btn btn-sm" id="jl-clear-btn">Clear</button>
+                            <label class="btn btn-sm" style="cursor:pointer;">Upload <input type="file" id="jl-file-input" accept=".json,.txt" hidden></label>
+                        </div>
+                    </div>
+                    <div id="jl-editor-wrap" style="position:relative;">
+                        <div id="jl-line-numbers" class="mono" style="position:absolute;left:0;top:0;bottom:0;width:40px;background:var(--bg-tertiary);border-right:1px solid var(--border);border-radius:6px 0 0 6px;padding:0.55rem 0.25rem;text-align:right;font-size:0.8rem;color:var(--text-muted);overflow:hidden;line-height:1.45;user-select:none;"></div>
+                        <textarea id="jl-input" class="mono" style="padding-left:48px;min-height:250px;line-height:1.45;tab-size:2;" placeholder='{"key": "value"}'></textarea>
+                    </div>
+                    <div class="form-row mt-1">
+                        <button class="btn btn-primary" id="jl-lint-btn">Lint &amp; Format</button>
+                        <button class="btn" id="jl-copy-btn">Copy Formatted</button>
+                        <button class="btn" id="jl-minify-btn">Minify</button>
+                    </div>
+                </div>
+                <div id="jl-status" class="hidden"></div>
+                <div id="jl-errors" class="hidden"></div>
+            </section>
+
+            <!-- EXCEL READER -->
+            <section class="tool-page" id="page-excel-reader">
+                <h2>Excel Reader</h2>
+                <p class="subtitle">View Excel files and convert to CSV</p>
+
+                <div class="card">
+                    <div class="drop-zone" id="xl-drop-zone">
+                        <div class="drop-icon">&#128202;</div>
+                        <p>Drop an Excel file here (.xlsx, .xls)</p>
+                        <input type="file" id="xl-file-input" accept=".xlsx,.xls" hidden>
+                    </div>
+                    <div id="xl-file-info" class="file-info hidden"></div>
+                </div>
+                <div id="xl-sheet-tabs" class="tabs hidden"></div>
+                <div id="xl-table-area" class="hidden">
+                    <div class="table-wrapper" style="max-height:500px;overflow:auto;">
+                        <table><thead id="xl-thead"></thead><tbody id="xl-tbody"></tbody></table>
+                    </div>
+                    <div class="form-row mt-1">
+                        <button class="btn btn-primary" id="xl-csv-btn">Download CSV</button>
+                        <button class="btn" id="xl-csv-all-btn">Download All Sheets (ZIP)</button>
+                    </div>
+                </div>
+                <div id="xl-loading" class="loading hidden"><div class="spinner"></div><span>Reading...</span></div>
+                <div id="xl-error" class="msg-error hidden"></div>
+            </section>
+
+            <!-- IMAGE TOOLS -->
+            <section class="tool-page" id="page-image-tools">
+                <h2>Image Tools</h2>
+                <p class="subtitle">Resize, convert format, and adjust colors</p>
+
+                <div class="card">
+                    <div class="drop-zone" id="img-drop-zone">
+                        <div class="drop-icon">&#128444;</div>
+                        <p>Drop an image here</p>
+                        <p class="drop-hint">JPEG, PNG, WebP, BMP, TIFF, GIF, ICO</p>
+                        <input type="file" id="img-file-input" accept="image/*" hidden>
+                    </div>
+                </div>
+
+                <div id="img-editor" class="hidden">
+                    <div class="card">
+                        <div style="text-align:center;margin-bottom:1rem;">
+                            <img id="img-preview" style="max-width:100%;max-height:400px;border-radius:6px;border:1px solid var(--border);">
+                        </div>
+                        <div id="img-info" class="text-muted mb-1" style="font-size:0.85rem;text-align:center;"></div>
+                    </div>
+
+                    <!-- Resize -->
+                    <div class="card">
+                        <h3 style="font-size:1rem;margin-bottom:0.75rem;">Resize</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Width (px)</label>
+                                <input type="number" id="img-width" min="1" max="10000">
+                            </div>
+                            <div class="form-group">
+                                <label>Height (px)</label>
+                                <input type="number" id="img-height" min="1" max="10000">
+                            </div>
+                            <div class="form-group" style="flex:0;padding-bottom:0.75rem;">
+                                <label style="white-space:nowrap;display:flex;align-items:center;gap:0.4rem;">
+                                    <input type="checkbox" id="img-lock-aspect" checked> Lock
+                                </label>
+                            </div>
+                            <button class="btn btn-primary" id="img-resize-btn" style="margin-bottom:0.75rem;">Resize</button>
+                        </div>
+                    </div>
+
+                    <!-- Convert -->
+                    <div class="card">
+                        <h3 style="font-size:1rem;margin-bottom:0.75rem;">Convert Format</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Output Format</label>
+                                <select id="img-format">
+                                    <option value="JPEG">JPEG</option>
+                                    <option value="PNG">PNG</option>
+                                    <option value="WEBP">WebP</option>
+                                    <option value="BMP">BMP</option>
+                                    <option value="TIFF">TIFF</option>
+                                    <option value="GIF">GIF</option>
+                                    <option value="ICO">ICO</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" id="img-convert-btn" style="margin-bottom:0.75rem;">Convert</button>
+                        </div>
+                    </div>
+
+                    <!-- Adjust -->
+                    <div class="card">
+                        <h3 style="font-size:1rem;margin-bottom:0.75rem;">Adjust</h3>
+                        <div class="form-group">
+                            <label>Brightness: <span id="img-brightness-val">100</span>%</label>
+                            <input type="range" id="img-brightness" min="0" max="200" value="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Saturation: <span id="img-saturation-val">100</span>%</label>
+                            <input type="range" id="img-saturation" min="0" max="200" value="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Hue Rotation: <span id="img-hue-val">0</span>&deg;</label>
+                            <input type="range" id="img-hue" min="0" max="360" value="0">
+                        </div>
+                        <button class="btn btn-primary" id="img-adjust-btn">Apply Adjustments</button>
+                    </div>
+                </div>
+                <div id="img-loading" class="loading hidden"><div class="spinner"></div><span>Processing...</span></div>
+                <div id="img-error" class="msg-error hidden"></div>
+            </section>
+
+            <!-- FILE RENAMER -->
+            <section class="tool-page" id="page-file-renamer">
+                <h2>File Renamer</h2>
+                <p class="subtitle">Rename files with custom or random names, strip metadata</p>
+
+                <div class="card">
+                    <div class="drop-zone" id="rn-drop-zone">
+                        <div class="drop-icon">&#128221;</div>
+                        <p>Drop a file here to rename</p>
+                        <input type="file" id="rn-file-input" hidden>
+                    </div>
+                </div>
+
+                <div id="rn-editor" class="hidden">
+                    <div class="card">
+                        <div class="form-group">
+                            <label>Current Name</label>
+                            <input type="text" id="rn-current" readonly style="opacity:0.7;">
+                        </div>
+                        <div class="form-group">
+                            <label>New Name</label>
+                            <input type="text" id="rn-new-name" placeholder="Enter new filename...">
+                        </div>
+                        <div class="btn-group mt-1">
+                            <button class="btn btn-primary" id="rn-rename-btn">Download Renamed</button>
+                            <button class="btn" id="rn-random-btn">Random Name</button>
+                            <button class="btn" id="rn-strip-btn">Strip Metadata &amp; Download</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="rn-error" class="msg-error hidden"></div>
+            </section>
+
+            <!-- NETWORK SCANNER -->
+            <section class="tool-page" id="page-network-scanner">
+                <h2>Network Scanner</h2>
+                <p class="subtitle">Scan local devices, ping test, speed test</p>
+
+                <div class="card">
+                    <h3 style="font-size:1rem;margin-bottom:0.75rem;">Local Devices</h3>
+                    <button class="btn btn-primary" id="ns-scan-btn">Scan Network</button>
+                    <div id="ns-devices" class="mt-1 hidden">
+                        <div class="table-wrapper">
+                            <table><thead><tr><th>IP Address</th><th>MAC Address</th><th>Hostname</th></tr></thead>
+                            <tbody id="ns-devices-body"></tbody></table>
+                        </div>
+                    </div>
+                    <div id="ns-scan-loading" class="loading hidden"><div class="spinner"></div><span>Scanning...</span></div>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size:1rem;margin-bottom:0.75rem;">Ping Test</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="ns-ping-host" value="8.8.8.8" placeholder="Host or IP">
+                        </div>
+                        <button class="btn btn-primary" id="ns-ping-btn" style="margin-bottom:0.75rem;">Ping</button>
+                    </div>
+                    <pre id="ns-ping-result" class="hidden mono" style="padding:0.75rem;background:var(--bg-tertiary);border-radius:6px;font-size:0.8rem;overflow-x:auto;white-space:pre-wrap;"></pre>
+                    <div id="ns-ping-loading" class="loading hidden"><div class="spinner"></div><span>Pinging...</span></div>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size:1rem;margin-bottom:0.75rem;">Speed Test</h3>
+                    <button class="btn btn-primary" id="ns-speed-btn">Run Speed Test</button>
+                    <div id="ns-speed-result" class="mt-1 hidden" style="font-size:0.9rem;"></div>
+                    <div id="ns-speed-loading" class="loading hidden"><div class="spinner"></div><span>Testing speed (may take a moment)...</span></div>
+                </div>
+                <div id="ns-error" class="msg-error hidden"></div>
+            </section>
+
+            <!-- STORAGE ANALYZER -->
+            <section class="tool-page" id="page-storage-analyzer">
+                <h2>Storage Analyzer</h2>
+                <p class="subtitle">Disk usage overview and largest files/directories</p>
+
+                <div class="card">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Path to scan</label>
+                            <input type="text" id="sa-path" value="/" placeholder="/ or /Users/...">
+                        </div>
+                        <button class="btn btn-primary" id="sa-scan-btn" style="margin-bottom:0.75rem;">Scan</button>
+                    </div>
+                </div>
+
+                <div id="sa-results" class="hidden">
+                    <div class="card">
+                        <h3 style="font-size:1rem;margin-bottom:0.75rem;">Disk Usage</h3>
+                        <div class="progress-bar" style="height:24px;margin-bottom:0.5rem;">
+                            <div class="progress-fill" id="sa-usage-bar"></div>
+                        </div>
+                        <div id="sa-usage-text" class="text-muted" style="font-size:0.85rem;"></div>
+                    </div>
+                    <div class="card">
+                        <h3 style="font-size:1rem;margin-bottom:0.75rem;">Top 10 by Size</h3>
+                        <div class="table-wrapper">
+                            <table><thead><tr><th>Path</th><th>Size</th><th></th></tr></thead>
+                            <tbody id="sa-top-body"></tbody></table>
+                        </div>
+                    </div>
+                </div>
+                <div id="sa-loading" class="loading hidden"><div class="spinner"></div><span>Scanning...</span></div>
+                <div id="sa-error" class="msg-error hidden"></div>
+            </section>
+
+            <!-- CHATGPT VIEWER -->
+            <section class="tool-page" id="page-chatgpt-viewer">
+                <h2>ChatGPT Data Viewer</h2>
+                <p class="subtitle">Browse, search, and export your ChatGPT conversations</p>
+
+                <div class="card">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="search" id="cg-search" placeholder="Search conversations...">
+                        </div>
+                        <button class="btn" id="cg-reprocess-btn" style="margin-bottom:0.75rem;" title="Re-process data from disk">Reprocess</button>
+                    </div>
+                </div>
+
+                <div id="cg-content" style="display:flex;gap:1rem;min-height:500px;">
+                    <!-- Left panel: conversation list -->
+                    <div id="cg-list-panel" class="card" style="width:320px;flex-shrink:0;overflow-y:auto;max-height:600px;padding:0.5rem;">
+                        <div id="cg-conv-list" style="font-size:0.85rem;"></div>
+                    </div>
+                    <!-- Right panel: chat display -->
+                    <div id="cg-chat-panel" class="card" style="flex:1;overflow-y:auto;max-height:600px;">
+                        <div id="cg-chat-area" style="font-size:0.9rem;">
+                            <p class="text-muted">Select a conversation to view</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cg-export-area" class="hidden mt-1">
+                    <div class="btn-group">
+                        <button class="btn btn-sm" data-format="txt">Export TXT</button>
+                        <button class="btn btn-sm" data-format="html">Export HTML</button>
+                        <button class="btn btn-sm" data-format="pdf">Export PDF</button>
+                        <button class="btn btn-sm" data-format="docx">Export DOCX</button>
+                    </div>
+                </div>
+                <div id="cg-loading" class="loading hidden"><div class="spinner"></div><span>Loading...</span></div>
+                <div id="cg-error" class="msg-error hidden"></div>
+            </section>
+
+            <!-- GEMINI CHAT -->
+            <section class="tool-page" id="page-gemini-chat">
+                <h2>Gemini Chat</h2>
+                <p class="subtitle">Chat with Google Gemini models via API</p>
+
+                <div class="card">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>API Key</label>
+                            <input type="password" id="gc-api-key" placeholder="Enter Gemini API key...">
+                        </div>
+                        <div class="form-group" style="max-width:200px;">
+                            <label>Model</label>
+                            <select id="gc-model"></select>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 flex-wrap">
+                        <label style="display:flex;align-items:center;gap:0.4rem;margin:0;cursor:pointer;">
+                            <input type="checkbox" id="gc-memory" checked>
+                            <span id="gc-memory-label" style="font-size:0.85rem;">Memory ON</span>
+                        </label>
+                        <button class="btn btn-sm" id="gc-new-session">New Session</button>
+                        <button class="btn btn-sm" id="gc-context-btn">View Context</button>
+                    </div>
+                </div>
+
+                <div class="card" style="min-height:350px;max-height:500px;overflow-y:auto;" id="gc-chat-area">
+                    <p class="text-muted">Start a new session and type a message below.</p>
+                </div>
+
+                <div class="card">
+                    <div style="display:flex;gap:0.5rem;align-items:flex-end;">
+                        <div style="flex:1;">
+                            <textarea id="gc-message" rows="2" placeholder="Type a message... (Enter to send, Shift+Enter for newline)" style="min-height:50px;"></textarea>
+                            <div id="gc-file-label" class="hidden text-muted" style="font-size:0.8rem;margin-top:0.25rem;"></div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                            <label class="btn btn-sm" style="cursor:pointer;" title="Attach files">
+                                &#128206; <input type="file" id="gc-file-input" multiple hidden>
+                            </label>
+                            <button class="btn btn-primary btn-sm" id="gc-send-btn">Send</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="gc-loading" class="loading hidden"><div class="spinner"></div><span>Waiting for Gemini...</span></div>
+                <div id="gc-error" class="msg-error hidden"></div>
+
+                <!-- Context modal -->
+                <div id="gc-context-modal" class="hidden" style="position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;align-items:center;justify-content:center;">
+                    <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:1.5rem;max-width:700px;width:90%;max-height:80vh;overflow-y:auto;">
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 style="font-size:1rem;">Context Window</h3>
+                            <button class="btn btn-sm" id="gc-context-close">Close</button>
+                        </div>
+                        <pre id="gc-context-content" class="mono" style="font-size:0.8rem;white-space:pre-wrap;color:var(--text-secondary);"></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AUDIO TRANSCRIPTION -->
+            <section class="tool-page" id="page-audio-transcription">
+                <h2>Audio Transcription</h2>
+                <p class="subtitle">Transcribe audio using a local LLM endpoint on your network</p>
+
+                <div class="card">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>LLM Endpoint URL</label>
+                            <input type="url" id="at-endpoint" placeholder="http://192.168.1.100:11434" value="http://localhost:11434">
+                        </div>
+                        <div class="form-group" style="max-width:160px;">
+                            <label>Endpoint Type</label>
+                            <select id="at-type">
+                                <option value="ollama">Ollama</option>
+                                <option value="openai">OpenAI-compatible</option>
+                                <option value="generic">Generic JSON</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="max-width:200px;">
+                            <label>Model Name</label>
+                            <input type="text" id="at-model" placeholder="e.g. whisper, llava" value="whisper">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="drop-zone" id="at-drop-zone">
+                        <div class="drop-icon">&#127925;</div>
+                        <p>Drop an audio file here</p>
+                        <p class="drop-hint">MP3, WAV, OGG, FLAC, M4A, WebM</p>
+                        <input type="file" id="at-file-input" accept="audio/*,.mp3,.wav,.ogg,.flac,.m4a,.webm" hidden>
+                    </div>
+                    <div id="at-file-info" class="file-info hidden"></div>
+                    <div class="mt-1">
+                        <button class="btn btn-primary" id="at-transcribe-btn">Transcribe</button>
+                    </div>
+                </div>
+
+                <div id="at-result" class="hidden">
+                    <div class="card">
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 style="font-size:1rem;">Transcription</h3>
+                            <button class="btn btn-sm" id="at-copy-btn">Copy</button>
+                        </div>
+                        <pre id="at-result-text" class="mono" style="white-space:pre-wrap;font-size:0.88rem;padding:0.75rem;background:var(--bg-tertiary);border-radius:6px;max-height:400px;overflow-y:auto;"></pre>
+                    </div>
+                </div>
+                <div id="at-loading" class="loading hidden"><div class="spinner"></div><span>Transcribing (this may take a while)...</span></div>
+                <div id="at-error" class="msg-error hidden"></div>
+            </section>
+
+            <!-- MD CONVERTER -->
+            <section class="tool-page" id="page-md-converter">
+                <h2>MD Converter</h2>
+                <p class="subtitle">Markdown &rarr; HTML &rarr; PDF — download at each step</p>
+
+                <!-- Step 1: Input -->
+                <div class="card" id="mc-step1">
+                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+                        <span style="background:var(--accent);color:#1e1e1e;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;flex-shrink:0;">1</span>
+                        <h3 style="font-size:1rem;margin:0;">Upload or paste Markdown</h3>
+                    </div>
+                    <div class="tabs">
+                        <button class="tab active" data-tab="mc-paste">Paste</button>
+                        <button class="tab" data-tab="mc-upload">Upload .md file</button>
+                    </div>
+                    <div id="tab-mc-paste" class="tab-content active">
+                        <textarea id="mc-text" rows="12" style="min-height:220px;" placeholder="# Hello World&#10;&#10;Paste your **Markdown** here..."></textarea>
+                    </div>
+                    <div id="tab-mc-upload" class="tab-content">
+                        <div class="drop-zone" id="mc-drop-zone">
+                            <div class="drop-icon">&#128196;</div>
+                            <p>Drop a .md file here, or click to browse</p>
+                            <input type="file" id="mc-file-input" accept=".md,.markdown,.txt" hidden>
+                        </div>
+                        <div id="mc-file-info" class="file-info hidden"></div>
+                    </div>
+                    <div class="btn-group mt-1">
+                        <button class="btn btn-primary" id="mc-preview-btn">Preview &amp; Convert to HTML</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: HTML Preview + Download -->
+                <div id="mc-step2" class="hidden">
+                    <div class="card">
+                        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+                            <span style="background:var(--accent);color:#1e1e1e;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;flex-shrink:0;">2</span>
+                            <h3 style="font-size:1rem;margin:0;">HTML Preview</h3>
+                            <div style="margin-left:auto;" class="btn-group">
+                                <button class="btn btn-primary" id="mc-dl-html-btn">&#8595; Download HTML</button>
+                                <button class="btn btn-sm" id="mc-toggle-preview-btn">Toggle Preview</button>
+                            </div>
+                        </div>
+                        <iframe id="mc-preview-frame" style="width:100%;height:500px;border:1px solid var(--border);border-radius:6px;background:#fff;"></iframe>
+                    </div>
+
+                    <!-- Step 3: PDF Preview + Download -->
+                    <div class="card" id="mc-step3">
+                        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+                            <span style="background:var(--green);color:#1e1e1e;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;flex-shrink:0;">3</span>
+                            <h3 style="font-size:1rem;margin:0;">PDF Preview</h3>
+                            <div style="margin-left:auto;" class="btn-group">
+                                <button class="btn btn-primary" id="mc-preview-pdf-btn">Preview PDF</button>
+                                <button class="btn btn-primary hidden" id="mc-dl-pdf-btn">&#8595; Download PDF</button>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-1" style="font-size:0.88rem;">Renders the Markdown to a pixel-accurate PDF using WeasyPrint. Preview before downloading.</p>
+                        <div id="mc-pdf-loading" class="loading hidden"><div class="spinner"></div><span>Generating PDF...</span></div>
+                        <iframe id="mc-pdf-frame" class="hidden" style="width:100%;height:700px;border:1px solid var(--border);border-radius:6px;background:#fff;"></iframe>
+                    </div>
+                </div>
+
+                <div id="mc-loading" class="loading hidden"><div class="spinner"></div><span>Converting...</span></div>
+                <div id="mc-error" class="msg-error hidden"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="/js/shell.js"></script>
+    <script src="/js/token-calculator.js"></script>
+    <script src="/js/json-linter.js"></script>
+    <script src="/js/excel-reader.js"></script>
+    <script src="/js/image-tools.js"></script>
+    <script src="/js/file-renamer.js"></script>
+    <script src="/js/network-scanner.js"></script>
+    <script src="/js/storage-analyzer.js"></script>
+    <script src="/js/chatgpt-viewer.js"></script>
+    <script src="/js/gemini-chat.js"></script>
+    <script src="/js/audio-transcription.js"></script>
+    <script src="/js/md-converter.js"></script>
+</body>
+</html>
