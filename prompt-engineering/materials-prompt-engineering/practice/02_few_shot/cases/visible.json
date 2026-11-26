@@ -1,0 +1,6 @@
+{
+  "cases": [
+    {"id": "visible_01", "input": "My invoice includes the same item twice.", "expected": "billing", "format": "text", "columns": []},
+    {"id": "visible_02", "input": "I signed in, but the export button freezes the page.", "expected": "technical", "format": "text", "columns": []}
+  ]
+}

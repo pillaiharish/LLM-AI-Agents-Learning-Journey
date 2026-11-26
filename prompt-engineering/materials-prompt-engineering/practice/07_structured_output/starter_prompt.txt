@@ -1,0 +1,3 @@
+Return the data as the requested table format:
+
+{{INPUT}}

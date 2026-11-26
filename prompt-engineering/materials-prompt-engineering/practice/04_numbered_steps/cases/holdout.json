@@ -1,0 +1,7 @@
+{
+  "cases": [
+    {"id": "holdout_01", "input": "Talia Frost, District 7: Could you repair the crossing signal by Friday?", "expected": "Talia Frost|District 7|repair the crossing signal|Friday", "format": "pipe", "columns": ["speaker", "district", "request", "deadline"]},
+    {"id": "holdout_02", "input": "Jules Ember: I ask the board to preserve the footpath.", "expected": "Jules Ember||preserve the footpath|", "format": "pipe", "columns": ["speaker", "district", "request", "deadline"]}
+  ]
+}
+

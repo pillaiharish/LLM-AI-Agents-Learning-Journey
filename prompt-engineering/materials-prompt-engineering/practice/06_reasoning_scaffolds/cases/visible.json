@@ -1,0 +1,6 @@
+{
+  "cases": [
+    {"id": "visible_01", "input": "We will inspect the crossing tomorrow.", "expected": "COMMITMENT", "format": "text", "columns": []},
+    {"id": "visible_02", "input": "We may inspect the crossing tomorrow.", "expected": "POSSIBILITY", "format": "text", "columns": []}
+  ]
+}

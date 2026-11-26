@@ -1,0 +1,3 @@
+Remove email addresses and phone numbers from the following conversation. Keep the speaker labels and return only the cleaned conversation.
+
+{{INPUT}}

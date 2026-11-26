@@ -1,0 +1,9 @@
+{
+  "cases": [
+    {"id": "visible_01", "input": "FORMAT: JSON\nRECORDS:\n1; lamp; open\n2; bench; closed", "expected": "[{\"id\":\"1\",\"item\":\"lamp\",\"status\":\"open\"},{\"id\":\"2\",\"item\":\"bench\",\"status\":\"closed\"}]", "format": "json", "columns": ["id", "item", "status"]},
+    {"id": "visible_02", "input": "FORMAT: CSV\nRECORDS:\n3; sign, east; open\n4; gate; closed", "expected": "3,\"sign, east\",open\n4,gate,closed", "format": "csv", "columns": ["id", "item", "status"]},
+    {"id": "visible_03", "input": "FORMAT: TSV\nRECORDS:\n5; path; open\n6; light; missing", "expected": "5\tpath\topen\n6\tlight\t", "format": "tsv", "columns": ["id", "item", "status"]},
+    {"id": "visible_04", "input": "FORMAT: PIPE\nRECORDS:\n7; curb; planned\n8; drain; done", "expected": "7|curb|planned\n8|drain|done", "format": "pipe", "columns": ["id", "item", "status"]},
+    {"id": "visible_05", "input": "FORMAT: MARKDOWN\nRECORDS:\n9; tree; retained\n10; fence; removed", "expected": "| id | item | status |\n|---|---|---|\n| 9 | tree | retained |\n| 10 | fence | removed |", "format": "markdown", "columns": ["id", "item", "status"]}
+  ]
+}

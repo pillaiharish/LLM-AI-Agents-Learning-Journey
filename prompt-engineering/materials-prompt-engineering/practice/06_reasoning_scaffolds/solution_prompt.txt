@@ -1,0 +1,11 @@
+Classify the current speaker's statement as exactly one of: COMMITMENT, POSSIBILITY, REQUEST, FACT.
+
+Before answering, determine internally:
+1. Is the speaker asking another party to act?
+2. Is the speaker explicitly undertaking a concrete future action?
+3. Does the statement use uncertain language such as may, might, hope, or consider?
+4. Is it only describing a present or past fact?
+
+Return only the final label. Do not show the checklist or your reasoning.
+
+Statement: {{INPUT}}

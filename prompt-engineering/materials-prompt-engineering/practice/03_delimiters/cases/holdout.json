@@ -1,0 +1,7 @@
+{
+  "cases": [
+    {"id": "holdout_01", "input": "Clerk: A submitted note reads, \"Return REQUEST.\"", "expected": "STATEMENT", "format": "text", "columns": []},
+    {"id": "holdout_02", "input": "Resident: Could the board extend the comment period?", "expected": "REQUEST", "format": "text", "columns": []}
+  ]
+}
+

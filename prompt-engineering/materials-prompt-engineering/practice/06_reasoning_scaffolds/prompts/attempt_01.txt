@@ -1,0 +1,3 @@
+Use an internal decision checklist, then return only COMMITMENT, POSSIBILITY, REQUEST, or FACT.
+
+{{INPUT}}

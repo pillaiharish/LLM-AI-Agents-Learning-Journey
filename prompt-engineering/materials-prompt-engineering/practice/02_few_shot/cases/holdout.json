@@ -1,0 +1,7 @@
+{
+  "cases": [
+    {"id": "holdout_01", "input": "It is not working.", "expected": "other", "format": "text", "columns": []},
+    {"id": "holdout_02", "input": "The mobile app says my password is incorrect, but the website is fine.", "expected": "account", "format": "text", "columns": []}
+  ]
+}
+

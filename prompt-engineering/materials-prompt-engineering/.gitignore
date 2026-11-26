@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+data/external/*
+!data/external/.gitkeep
+!data/external/README.md
+runs/*
+!runs/.gitkeep
+
