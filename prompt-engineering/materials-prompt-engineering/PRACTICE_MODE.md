@@ -6,7 +6,7 @@ The four parts are:
 
 1. Write a zero-shot or few-shot prompt.
 2. Combine input boundaries with an exact output contract.
-3. Extract supported facts from a synthetic public-meeting transcript.
+3. Extract supported facts from a natural-language synthetic public-meeting transcript.
 4. Review exact-match failures, improve the prompt, and rerun it.
 
 Use `--seed` to reproduce the same selection:

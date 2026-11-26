@@ -35,4 +35,5 @@ def test_practice_selection_is_deterministic() -> None:
     assert len(parts) == 4
     assert sum(part.minutes for part in parts) == 55
     assert parts[2].lesson == "09"
+    assert parts[2].case_id.startswith("visible_natural_")
 

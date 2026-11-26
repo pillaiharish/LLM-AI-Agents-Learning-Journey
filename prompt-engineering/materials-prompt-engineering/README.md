@@ -50,7 +50,7 @@ The lab never pulls a model automatically. Edit `prompt_lab.toml` or use `--mode
 | 06 | Reasoning scaffolds |
 | 07 | Exact structured output |
 | 08 | Labeled conversations |
-| 09 | Real-world information extraction |
+| 09 | Real-world information extraction with controlled and natural transcript tiers |
 | 10 | Robustness and holdout evaluation |
 
 Start with Lesson 01:
@@ -77,6 +77,8 @@ python -m prompt_lab practice --seed 12345
 ```
 
 Use `--prompt attempt_02.txt` to evaluate another prompt revision. Use `--model`, `--temperature`, or `--ollama-url` for one-run overrides. The URL must remain on the local machine.
+
+Lesson 09 progresses from short controlled-language cases to natural multi-speaker transcripts. Its visible split contains 10 controlled and five natural cases; its holdout split contains 10 controlled, seven medium natural, and three long/noisy cases.
 
 Visible cases show expected answers after a failure. Holdout answers stay hidden unless you deliberately pass `--reveal`. They are local educational fixtures, not encrypted secrets.
 

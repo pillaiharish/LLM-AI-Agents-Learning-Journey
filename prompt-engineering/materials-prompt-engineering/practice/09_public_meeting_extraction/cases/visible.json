@@ -3,7 +3,7 @@
     {
       "id": "visible_01",
       "input": "Moderator: Next is Alia North, a resident of District 4.\nAlia North: My issue is traffic. I request a pedestrian signal.",
-      "expected": "Alia North\tresident\t\tDistrict 4\ttraffic\ta pedestrian signal\t\t",
+      "expected": "Alia North\tresident\t\tDistrict 4\ttraffic\trequest a pedestrian signal\t\t",
       "format": "tsv",
       "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
     },
@@ -17,14 +17,14 @@
     {
       "id": "visible_03",
       "input": "Moderator: Kai Stone, resident, has the floor.\nKai Stone: The project at 100 Example Avenue is too tall. My issue is zoning. I request reduce the building height.",
-      "expected": "Kai Stone\tresident\t\t\tzoning\treduce the building height\t\t",
+      "expected": "Kai Stone\tresident\t\t\tzoning\trequest reduce the building height\t\t",
       "format": "tsv",
       "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
     },
     {
       "id": "visible_04",
       "input": "Lena Park, resident of West Orchard, District 6: My issue is noise. I request install a temporary sound barrier.",
-      "expected": "Lena Park\tresident\tWest Orchard\tDistrict 6\tnoise\tinstall a temporary sound barrier\t\t",
+      "expected": "Lena Park\tresident\tWest Orchard\tDistrict 6\tnoise\trequest install a temporary sound barrier\t\t",
       "format": "tsv",
       "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
     },
@@ -59,7 +59,7 @@
     {
       "id": "visible_09",
       "input": "Rhea Dawn, resident of Pine Yard: My issue is housing. Juno said, \"I will file an appeal.\" I request preserve the affordable units.",
-      "expected": "Rhea Dawn\tresident\tPine Yard\t\thousing\tpreserve the affordable units\t\t",
+      "expected": "Rhea Dawn\tresident\tPine Yard\t\thousing\trequest preserve the affordable units\t\t",
       "format": "tsv",
       "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
     },
@@ -67,6 +67,41 @@
       "id": "visible_10",
       "input": "Moderator: To summarize absent resident Sol Pine, their issue was parking and they requested a garage study.",
       "expected": "",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_natural_01",
+      "input": "CHAIR: We will resume with construction logistics. Elena Marrow, a resident from West Cedar, is recognized. After Ms. Marrow, Rowan Pike, the project manager, may respond.\nELENA MARROW: Thank you. I have lived on West Cedar for seventeen years. The development itself is not what troubles us. The concrete trucks have been coming through the residential entrance at 5:30 in the morning, and the reversing alarms wake the whole block. Could the project route those deliveries through the Harbor Avenue entrance instead? That street reaches the site without passing the apartment courtyards.\nCHAIR: Mr. Pike, please answer only for the project team.\nROWAN PIKE: We checked that route with our traffic engineer yesterday. Beginning next week, our team will route all concrete deliveries through the Harbor Avenue entrance. The smaller service vans will still use the existing gate during normal daytime hours.\nELENA MARROW: That change would address the early-morning problem. I appreciate the direct answer.\nCHAIR: The clerk will record the logistics change. We are not opening the separate parking item yet.",
+      "expected": "Elena Marrow\tresident\tWest Cedar\t\tconcrete trucks coming through the residential entrance at 5:30 in the morning\trequest route concrete deliveries through the Harbor Avenue entrance\t\t\nRowan Pike\tproject manager\t\t\tconstruction logistics\t\troute all concrete deliveries through the Harbor Avenue entrance\tbeginning next week",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_natural_02",
+      "input": "MODERATOR: The next item concerns the Harbor Row housing proposal. I am calling Tessa Bloom from District 2, followed by planning commissioner Noel Hart.\nTESSA BLOOM: I rent two blocks from the site in Harbor Row. The revised drawing keeps the family-sized apartments, which is important, but it moves the public courtyard into permanent shade. I support the housing proposal only if the courtyard stays on the south side. Could the commission restore that part of the earlier design before voting?\nNOEL HART: The commission has not chosen a final layout. We may ask the architect to compare both courtyard locations, and we will consider the resident's condition during deliberations. I cannot promise a redesign tonight.\nMODERATOR: To be clear, the project address shown on the slide is 20 Example Plaza. That is the development site, not Ms. Bloom's home.\nTESSA BLOOM: Correct. Harbor Row is the area I gave for the record. My support remains conditional on keeping usable sunlight in the courtyard.\nMODERATOR: Thank you. The written comment period stays open through the date already posted on the website.",
+      "expected": "Tessa Bloom\t\tHarbor Row\tDistrict 2\thousing proposal\tsupport the housing proposal only if the courtyard stays on the south side\t\t\nTessa Bloom\t\tHarbor Row\tDistrict 2\tcourtyard in permanent shade\trequest restore that part of the earlier design before voting\t\t\nNoel Hart\tplanning commissioner\t\t\tcourtyard locations\tmay ask the architect to compare both courtyard locations\t\t\nNoel Hart\tplanning commissioner\t\t\tresident's condition\tconsider the resident's condition during deliberations\t\t",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_natural_03",
+      "input": "CHAIR: We are moving to drainage near the North Quay works. Samir Vale, a shop owner from Market Bend, has the floor. The construction parcel is 88 Example Street.\nSAMIR VALE: Water from the temporary ramp runs across the Market Bend storefronts whenever it rains. Yesterday it reached the entrance to my shop. Please clear the blocked drain and place a barrier along the ramp before the next storm. I am not asking you to change the project entrance.\nCHAIR: City engineer Lio Frost, can you separate the immediate work from the later study?\nLIO FROST: Yes. Our maintenance crew is clearing the blocked drain tomorrow morning. We will inspect the ramp after that, but the barrier needs a field measurement before I can give a date.\nSAMIR VALE: Clearing the drain tomorrow is the urgent part. The parcel number on the agenda is not my business address, and I want the record to reflect that.\nCHAIR: It will. The unrelated question about the bus shelter belongs under the next agenda item.",
+      "expected": "Samir Vale\tshop owner\tMarket Bend\t\twater from the temporary ramp runs across the Market Bend storefronts\trequest clear the blocked drain\t\t\nSamir Vale\tshop owner\tMarket Bend\t\twater from the temporary ramp runs across the Market Bend storefronts\trequest place a barrier along the ramp\t\t\nLio Frost\tcity engineer\t\t\tblocked drain\t\tclear the blocked drain\ttomorrow morning\nLio Frost\tcity engineer\t\t\tramp\t\tinspect the ramp\t",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_natural_04",
+      "input": "MODERATOR: Public comment continues with Jae Linden, resident of Pine Terrace in District 5.\nJAE LINDEN: When I submitted my written comment last month, I supported closing the service road to cars. After watching the emergency-access demonstration this afternoon, I oppose a permanent closure. An ambulance should not have to wait for a removable barrier. I could support a weekend-only closure if emergency vehicles retain direct access.\nMODERATOR: The record will show that the speaker changed the position stated in the earlier letter. Transportation director Mira Wren may respond.\nMIRA WREN: The department might test a weekend-only closure, but we have not approved one. We will publish the emergency-access measurements on Thursday so residents can review the same information we used.\nJAE LINDEN: Publishing those measurements will help. Until then, my position is opposition to a permanent closure, not opposition to every possible pilot.\nMODERATOR: Thank you. A comment quoted from an absent neighbor will be entered as written testimony and not as Mr. Linden's statement.",
+      "expected": "Jae Linden\tresident\tPine Terrace\tDistrict 5\tservice road closure\toppose a permanent closure\t\t\nJae Linden\tresident\tPine Terrace\tDistrict 5\tweekend-only closure\tmay support a weekend-only closure if emergency vehicles retain direct access\t\t\nMira Wren\ttransportation director\t\t\tweekend-only closure\tmight test a weekend-only closure\t\t\nMira Wren\ttransportation director\t\t\temergency-access measurements\t\tpublish the emergency-access measurements\tThursday",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_natural_05",
+      "input": "CHAIR: I will call Mina Shore first and Mira Shore second. Mina Shore is the tenant representative for Lake Court; Mira Shore is the environmental consultant for the applicant.\nMINA SHORE: Residents at Lake Court can smell diesel exhaust in the interior courtyard during overnight generator tests. The notice says testing can continue until midnight. Could the applicant finish generator testing before 9 PM and post the remaining test dates in the lobby?\nCHAIR: Thank you. Mira Shore, please do not answer for the property manager.\nMIRA SHORE: Our air study concerns daytime construction equipment, not the overnight generator schedule. The contractor told me, \"We will finish by nine,\" but that was not a commitment made by my consulting team. I can submit the completed air-monitoring report to the clerk on Tuesday.\nCHAIR: Contractor Daren Quill, can you address the schedule directly?\nDAREN QUILL: Yes. Starting tomorrow, our crews will end generator testing before 9 PM, and we will post the remaining test dates in the Lake Court lobby tomorrow afternoon.\nMINA SHORE: Those two steps answer the residents' request.\nCHAIR: The clerk has captured the commitments from Mr. Quill, not the quoted statement from Ms. Shore.",
+      "expected": "Mina Shore\ttenant representative\tLake Court\t\tdiesel exhaust in the interior courtyard during overnight generator tests\trequest finish generator testing before 9 PM\t\t\nMina Shore\ttenant representative\tLake Court\t\tovernight generator tests\trequest post the remaining test dates in the lobby\t\t\nMira Shore\tenvironmental consultant\t\t\tair-monitoring report\t\tsubmit the completed air-monitoring report to the clerk\tTuesday\nDaren Quill\tcontractor\t\t\tgenerator testing\t\tend generator testing before 9 PM\tstarting tomorrow\nDaren Quill\tcontractor\t\t\tremaining test dates\t\tpost the remaining test dates in the Lake Court lobby\ttomorrow afternoon",
       "format": "tsv",
       "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
     }

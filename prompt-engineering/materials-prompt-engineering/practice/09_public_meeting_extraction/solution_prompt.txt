@@ -10,7 +10,7 @@ Output rules:
 - Preserve transcript order.
 - Emit one row for each speaker contribution containing an issue, position, request, or commitment.
 - Emit separate rows for multiple distinct issues or commitments in one contribution.
-- Copy the shortest complete wording from the source after phrases such as “issue is”, “request”, “support”, “oppose”, and “will”. Keep source spelling and case.
+- Follow the field-normalization rules from the task exactly.
 
 Evidence rules:
 1. Extract only explicitly supported facts; never infer a role, area, district, action, or deadline.
@@ -21,6 +21,12 @@ Evidence rules:
 6. “May”, “might”, “hope”, “consider”, and “look into it” are not commitments; retain them only as a position when relevant.
 7. A deadline must be explicitly attached to the commitment.
 8. If no contribution qualifies, return an empty response.
+
+Normalization checklist:
+- For issue, remove only framing such as “my concern is”; keep the shortest supported noun phrase.
+- For position_or_request, remove a leading I/we but retain request, support, oppose, consider, may, or might. Convert a direct imperative/question request to `request <base action>`.
+- For commitment, remove a leading pronoun and will/shall, retain negation, and move any explicit time phrase to deadline.
+- For deadline, remove a leading by/on/before but preserve the remaining time wording.
 
 <TRANSCRIPT>
 {{INPUT}}

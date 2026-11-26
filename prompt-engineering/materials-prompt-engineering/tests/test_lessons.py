@@ -18,7 +18,7 @@ def test_all_lesson_cases_load() -> None:
         "06": (2, 2),
         "07": (5, 5),
         "08": (2, 2),
-        "09": (10, 10),
+        "09": (15, 20),
         "10": (5, 5),
     }
     for lesson, counts in expected_counts.items():
