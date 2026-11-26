@@ -1,0 +1,6 @@
+{
+  "cases": [
+    {"id": "visible_01", "input": "Mara Quinn of District 2: I request a traffic count by June 10.", "expected": "Mara Quinn|District 2|a traffic count|June 10", "format": "pipe", "columns": ["speaker", "district", "request", "deadline"]},
+    {"id": "visible_02", "input": "Oren Pike: Please publish the noise report.", "expected": "Oren Pike||publish the noise report|", "format": "pipe", "columns": ["speaker", "district", "request", "deadline"]}
+  ]
+}

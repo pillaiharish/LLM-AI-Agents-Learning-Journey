@@ -1,0 +1,7 @@
+{
+  "cases": [
+    {"id": "holdout_01", "input": "Please inspect the crossing tomorrow.", "expected": "REQUEST", "format": "text", "columns": []},
+    {"id": "holdout_02", "input": "The crossing was inspected yesterday.", "expected": "FACT", "format": "text", "columns": []}
+  ]
+}
+

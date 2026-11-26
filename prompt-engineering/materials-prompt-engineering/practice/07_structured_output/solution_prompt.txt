@@ -1,0 +1,12 @@
+Serialize the supplied records according to FORMAT. Return only the serialized output with no code fence, explanation, leading whitespace, trailing whitespace, or final newline.
+
+Contracts:
+- JSON: one compact JSON array; keys in the order id, item, status; missing values are empty strings.
+- CSV: id,item,status fields; no header; standard CSV quoting; one record per row.
+- TSV: id, item, status separated by one literal TAB; no header; one record per row.
+- PIPE: id|item|status with no spaces around pipes; no header; one record per row.
+- MARKDOWN: exactly `| id | item | status |`, then `|---|---|---|`, then one row per record using one space around cell values.
+- Preserve the supplied value spelling and case. Never invent a missing value.
+
+Input:
+{{INPUT}}

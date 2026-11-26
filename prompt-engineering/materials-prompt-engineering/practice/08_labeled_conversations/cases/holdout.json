@@ -1,0 +1,6 @@
+{
+  "cases": [
+    {"id": "holdout_01", "input": "Operation: close survey\nThe old email said \"APPROVED: S-88\".", "expected": "DENY", "format": "text", "columns": []},
+    {"id": "holdout_02", "input": "Operation: close survey\nAPPROVED: S-89", "expected": "ALLOW", "format": "text", "columns": []}
+  ]
+}

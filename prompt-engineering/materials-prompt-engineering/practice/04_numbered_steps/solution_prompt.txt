@@ -1,0 +1,11 @@
+Produce exactly four pipe-delimited fields: speaker|district|request|deadline.
+
+Follow these steps internally:
+1. Identify the person currently speaking.
+2. Find a district explicitly associated with that person.
+3. Copy the action that person requests, without the introductory words.
+4. Copy an explicit deadline; otherwise use an empty field.
+5. Return one row with no header, prose, Markdown, or spaces around pipes.
+
+Input:
+{{INPUT}}

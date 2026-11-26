@@ -1,0 +1,3 @@
+Extract speaker, district, request, and deadline in that order, separated by |. Leave missing values empty.
+
+{{INPUT}}

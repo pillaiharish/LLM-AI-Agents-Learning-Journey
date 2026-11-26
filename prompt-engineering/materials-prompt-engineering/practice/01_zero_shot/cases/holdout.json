@@ -1,0 +1,19 @@
+{
+  "cases": [
+    {
+      "id": "holdout_01",
+      "input": "Customer: Use second.user@example.com or 202-555-0188.\nAgent: Noted.",
+      "expected": "Customer: Use [EMAIL] or [PHONE].\nAgent: Noted.",
+      "format": "text",
+      "columns": []
+    },
+    {
+      "id": "holdout_02",
+      "input": "Customer: There is no contact information here.\nAgent: Understood.",
+      "expected": "Customer: There is no contact information here.\nAgent: Understood.",
+      "format": "text",
+      "columns": []
+    }
+  ]
+}
+

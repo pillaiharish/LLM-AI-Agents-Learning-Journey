@@ -1,0 +1,3 @@
+Classify this statement:
+
+{{INPUT}}

@@ -1,0 +1,74 @@
+{
+  "cases": [
+    {
+      "id": "visible_01",
+      "input": "Moderator: Next is Alia North, a resident of District 4.\nAlia North: My issue is traffic. I request a pedestrian signal.",
+      "expected": "Alia North\tresident\t\tDistrict 4\ttraffic\ta pedestrian signal\t\t",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_02",
+      "input": "Evan Brook: I am a shop owner from River Market. My issue is construction. I oppose overnight work.",
+      "expected": "Evan Brook\tshop owner\tRiver Market\t\tconstruction\toppose overnight work\t\t",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_03",
+      "input": "Moderator: Kai Stone, resident, has the floor.\nKai Stone: The project at 100 Example Avenue is too tall. My issue is zoning. I request reduce the building height.",
+      "expected": "Kai Stone\tresident\t\t\tzoning\treduce the building height\t\t",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_04",
+      "input": "Lena Park, resident of West Orchard, District 6: My issue is noise. I request install a temporary sound barrier.",
+      "expected": "Lena Park\tresident\tWest Orchard\tDistrict 6\tnoise\tinstall a temporary sound barrier\t\t",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_05",
+      "input": "Pax Build, contractor: My issue is construction access. We will move deliveries to the south gate.",
+      "expected": "Pax Build\tcontractor\t\t\tconstruction access\t\tmove deliveries to the south gate\t",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_06",
+      "input": "Nora Vale, transit official: My issue is public services. We will consider a weekend bus lane.",
+      "expected": "Nora Vale\ttransit official\t\t\tpublic services\tconsider a weekend bus lane\t\t",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_07",
+      "input": "Omar Reed, site official: My issue is noise. We will inspect the site by Friday.",
+      "expected": "Omar Reed\tsite official\t\t\tnoise\t\tinspect the site\tFriday",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_08",
+      "input": "Iris Glen, planner: My issue is traffic. We may extend the survey.\nTomas Gray, engineer: My issue is traffic. We will publish the count on Monday.",
+      "expected": "Iris Glen\tplanner\t\t\ttraffic\tmay extend the survey\t\t\nTomas Gray\tengineer\t\t\ttraffic\t\tpublish the count\tMonday",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_09",
+      "input": "Rhea Dawn, resident of Pine Yard: My issue is housing. Juno said, \"I will file an appeal.\" I request preserve the affordable units.",
+      "expected": "Rhea Dawn\tresident\tPine Yard\t\thousing\tpreserve the affordable units\t\t",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    },
+    {
+      "id": "visible_10",
+      "input": "Moderator: To summarize absent resident Sol Pine, their issue was parking and they requested a garage study.",
+      "expected": "",
+      "format": "tsv",
+      "columns": ["speaker_name", "speaker_role", "address_or_area", "district", "issue", "position_or_request", "commitment", "deadline"]
+    }
+  ]
+}

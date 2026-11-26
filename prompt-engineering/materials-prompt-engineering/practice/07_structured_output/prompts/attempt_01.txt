@@ -1,0 +1,3 @@
+Read FORMAT and serialize the records with fields in this order: id, item, status. Return only the requested format. Use empty values for missing data.
+
+{{INPUT}}

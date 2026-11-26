@@ -1,0 +1,6 @@
+{
+  "cases": [
+    {"id": "visible_01", "input": "Nia Moss, a resident of Cedar Point, spoke next.", "expected": "Nia Moss\tresident\tCedar Point", "format": "tsv", "columns": ["name", "role", "area"]},
+    {"id": "visible_02", "input": "Bo Lin from North Quay submitted a comment.", "expected": "Bo Lin\t\tNorth Quay", "format": "tsv", "columns": ["name", "role", "area"]}
+  ]
+}

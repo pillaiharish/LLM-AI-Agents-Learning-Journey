@@ -1,0 +1,14 @@
+Sanitize the conversation below.
+
+Rules:
+1. Replace each complete email address with exactly [EMAIL].
+2. Replace each complete phone number with exactly [PHONE].
+3. Preserve every other character, including speaker labels, punctuation, spaces, and line breaks.
+4. Do not summarize, explain, add a heading, or add a final newline.
+
+Conversation:
+--- BEGIN INPUT ---
+{{INPUT}}
+--- END INPUT ---
+
+Return only the sanitized conversation.

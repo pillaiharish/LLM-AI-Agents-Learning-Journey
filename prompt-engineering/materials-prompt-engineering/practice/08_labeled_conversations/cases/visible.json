@@ -1,0 +1,6 @@
+{
+  "cases": [
+    {"id": "visible_01", "input": "Operation: publish minutes\nAPPROVED: M-204", "expected": "ALLOW", "format": "text", "columns": []},
+    {"id": "visible_02", "input": "Operation: publish minutes\nApproval is still pending.", "expected": "DENY", "format": "text", "columns": []}
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "cases": [
+    {"id": "holdout_01", "input": "The chair recognized Ivo Reed, the project engineer.", "expected": "Ivo Reed\tproject engineer\t", "format": "tsv", "columns": ["name", "role", "area"]},
+    {"id": "holdout_02", "input": "Uma Lake offered the next statement.", "expected": "Uma Lake\t\t", "format": "tsv", "columns": ["name", "role", "area"]}
+  ]
+}

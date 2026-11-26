@@ -1,0 +1,3 @@
+[
+  {"role": "user", "content": "Decide whether this operation is allowed.\n\n{{INPUT}}"}
+]

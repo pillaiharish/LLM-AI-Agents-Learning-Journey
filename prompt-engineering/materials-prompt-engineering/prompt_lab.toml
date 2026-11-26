@@ -1,0 +1,8 @@
+[ollama]
+url = "http://localhost:11434"
+model = "qwen3.5:9b"
+temperature = 0
+seed = 12345
+num_predict = 2048
+timeout_seconds = 180
+

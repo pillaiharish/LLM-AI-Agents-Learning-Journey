@@ -1,0 +1,18 @@
+{
+  "cases": [
+    {
+      "id": "visible_01",
+      "input": "Customer: My email is user@example.com.\nAgent: I have updated the record.",
+      "expected": "Customer: My email is [EMAIL].\nAgent: I have updated the record.",
+      "format": "text",
+      "columns": []
+    },
+    {
+      "id": "visible_02",
+      "input": "Agent: Call 202-555-0147 after 3:00.\nCustomer: Thank you!",
+      "expected": "Agent: Call [PHONE] after 3:00.\nCustomer: Thank you!",
+      "format": "text",
+      "columns": []
+    }
+  ]
+}

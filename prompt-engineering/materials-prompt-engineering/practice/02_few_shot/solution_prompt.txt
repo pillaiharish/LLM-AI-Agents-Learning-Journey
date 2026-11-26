@@ -1,0 +1,14 @@
+Classify a support message using exactly one label: billing, technical, account, or other.
+
+Example 1
+Message: "I cannot sign in, and resetting my password did not help."
+Output: account
+
+Example 2
+Message: "It is not working."
+Output: other
+
+A sign-in or credential problem is account. A product malfunction after sign-in is technical. Charges, invoices, and refunds are billing. If there is not enough information, use other.
+
+Message: {{INPUT}}
+Output:

@@ -1,0 +1,3 @@
+Extract the important public-meeting information as a table:
+
+{{INPUT}}

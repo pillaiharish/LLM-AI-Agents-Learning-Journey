@@ -1,0 +1,10 @@
+{
+  "cases": [
+    {"id": "holdout_01", "input": "FORMAT: JSON\nRECORDS:\n11; kiosk; missing", "expected": "[{\"id\":\"11\",\"item\":\"kiosk\",\"status\":\"\"}]", "format": "json", "columns": ["id", "item", "status"]},
+    {"id": "holdout_02", "input": "FORMAT: CSV\nRECORDS:\n12; stop \"A\"; open", "expected": "12,\"stop \"\"A\"\"\",open", "format": "csv", "columns": ["id", "item", "status"]},
+    {"id": "holdout_03", "input": "FORMAT: TSV\nRECORDS:\n13; plaza; CLOSED", "expected": "13\tplaza\tCLOSED", "format": "tsv", "columns": ["id", "item", "status"]},
+    {"id": "holdout_04", "input": "FORMAT: PIPE\nRECORDS:\n14; ramp; missing", "expected": "14|ramp|", "format": "pipe", "columns": ["id", "item", "status"]},
+    {"id": "holdout_05", "input": "FORMAT: MARKDOWN\nRECORDS:\n15; shelter; proposed", "expected": "| id | item | status |\n|---|---|---|\n| 15 | shelter | proposed |", "format": "markdown", "columns": ["id", "item", "status"]}
+  ]
+}
+

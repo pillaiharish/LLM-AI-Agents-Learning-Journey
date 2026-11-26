@@ -1,0 +1,3 @@
+Decide what the speaker thinks and return JSON:
+
+{{INPUT}}
