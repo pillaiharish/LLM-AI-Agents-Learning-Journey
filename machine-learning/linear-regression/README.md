@@ -190,13 +190,31 @@ prediction = result.predict(sm.add_constant(X_test))
 Use the same split for the trained model and its baseline. Compare R² for
 relative fit and RMSE/MAE for error magnitude in target units.
 
+The fixed random seeds make dataset generation and the numerical
+model/evaluation results repeatable across executions. The saved notebook is
+not byte-for-byte deterministic because `full_ols_results.summary()` includes its
+execution Date/Time and notebook execution metadata may also contain
+timestamps.
+
 ## From OLS to GLM
 
 Linear regression is a natural starting point for a continuous target. A
 Generalized Linear Model asks two broader questions:
 
 1. Which distribution family is appropriate for `y`?
-2. Which link function maps the linear predictor to the expected target?
+2. Which link function connects the expected response to the linear predictor?
+
+The conventional GLM relationship is:
+
+```text
+g(E[Y | X]) = Xβ
+```
+
+The link function `g` maps the expected response, or conditional mean, to the
+linear predictor `Xβ`. The inverse link goes in the direction needed for
+prediction: it maps `Xβ` back to the expected target. For logistic regression,
+the inverse-logit turns an unrestricted linear predictor into a probability
+between 0 and 1.
 
 Three target shapes make the progression concrete:
 
